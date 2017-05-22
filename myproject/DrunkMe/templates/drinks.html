@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="blockcontents section namebar drink">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 namebar">
+            <h1 class="about content">
+              <i class="fa fa-fw fa-lg fa-plus plus"></i>FIND DRINKS</h1>
+            <h3 class="johnnie" contenteditable="true">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Put your passion to drink.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'drinkdetail' 'Wine' %}">
+    <img src="../media/images/base/d1.jpg" class="img-responsive" style="width: 100%">
+    </a>
+
+    <a href="{% url 'drinkdetail' 'Spirits' %}">
+    <img src="../media/images/base/d3.jpg" class="img-responsive" style="width: 100%">
+    </a>
+
+    <a href="{% url 'drinkdetail' 'Beer' %}">
+    <img src="../media/images/base/d3.png" class="img-responsive" style="width: 100%">
+    </a>
+
+    {% endblock body %}

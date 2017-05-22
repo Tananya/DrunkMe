@@ -1,0 +1,478 @@
+{% load static %}
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../media/css/areasdetailCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/contentsCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/drinksCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/eventCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/drinksCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/testcss.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant:600" rel="stylesheet"> 
+  </head>
+  <style type="text/css">
+     ul.nav li.dropdown:hover > ul.dropdown-menu {
+                    display: block;
+                    margin-top:0px;
+}
+
+h1{
+  font-family: 'Cormorant Infant', serif;
+}
+h2{
+  font-family: 'Cormorant Infant', serif;
+}
+h3{
+  font-family: 'Cormorant Infant', serif;
+}
+h4{
+  font-family: 'Cormorant Infant', serif;
+}
+h5{
+   font-family: 'Cormorant Infant', serif;
+}
+
+.buttonG {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #5CB85C;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonG span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonG span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonG:hover span {
+  padding-right: 25px;
+}
+
+.buttonG:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.buttonY {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #FCD307;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonY span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonY span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonY:hover span {
+  padding-right: 25px;
+}
+
+.buttonY:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.swing:hover
+{
+        -webkit-animation: swing 0.5s ease;
+        animation: swing 0.5s ease;
+        -webkit-animation-iteration-count: 3;
+        animation-iteration-count: 3;
+}
+
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+</style>
+  <body>
+    <div class="navbar navbar-default navbar-static-top menu">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand menu" href="{% url 'home' %}"><img class="swing" height="50" alt="Brand" src="../media/images/base/logo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="{% url 'home' %}">HOME</a>
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'contents' %}"  aria-expanded="false" >CONTENTS<br></a>
+              <ul class="dropdown-menu" role="menu" style="padding: none;min-width: 50px">
+                <li>
+                  <a href="{% url 'promotion' %}">PROMOTION</a>
+                </li>
+                <li>
+                  <a href="{% url 'happyhour' %}">HAPPY HOURS</a>
+                </li>
+                <li>
+                  <a href="{% url 'eventall' %}">EVENT</a>
+                </li>
+                <li>
+                  <a href="{% url 'areas' %}">AREAS</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'nearby' %}">LOCATION</a>
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'drinks' %}"  aria-expanded="false" >DRINKS<br></a>
+              <ul class="dropdown-menu" role="menu" style="min-width: 50px">
+                
+                <li class="dropdown" >
+                  <a href="{% url 'drinkdetail' 'Wine' %}" aria-expanded="false">WINE<br></a>
+                  <ul class="dropdown-menu" role="menu" style="min-width: 125px;top: 0;left: 100%;">
+                    <li>
+                      <a href="{% url 'typedrink' 'whitewine' %}">White Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'redwine' %}">Red Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'rosewine' %}">Rose Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'dessertwine' %}">Dessert Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'sparkling' %}">Sparkling Wine</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="{% url 'drinkdetail' 'Spirits' %}"  aria-expanded="false" >SPIRITS<br></a>
+                  <ul class="dropdown-menu" role="menu"  style="min-width: 125px;top: 0;left: 100%;">
+                    <li>
+                      <a href="{% url 'typedrink' 'whisky' %}">Whisky</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'vodka' %}">Vodka</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'gin' %}">Gin</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'brandy' %}">Brandy</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'tequila' %}">Tequila</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'liqueur' %}">Liqueur</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'rum' %}">Rum</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'aperitif' %}">Aperitif</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="{% url 'drinkdetail' 'Beer' %}" aria-expanded="false" >BEER<br></a>
+                  <ul class="dropdown-menu" role="menu"  style="min-width: 250px;top: 0;left: 100%;">
+                    <li>
+                      <a href="{% url 'typedrink' 'ipa' %}">Ipa</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'stouts' %}">Stouts</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'blondes' %}">Blondes</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'paleales' %}">Pale Ales</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'wheatbeer' %}">Wheat Beer</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'aleandporters' %}">Ale and Porters</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'whiskybourbonbarrelagedstouts' %}">Whisky:Bourbon Barrel-Aged Stouts</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'redalesambers' %}">Red Ales:Ambers</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'ryesandpumpkinales' %}">Ryes and pumpkin Ales</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'pilsners' %}">Pilsners</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'amberlager' %}">Amber Lager</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'bock' %}">Bock</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'dunkel' %}">Dunkel</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'schwarzbier' %}">Schwarzbier</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'home' %}#contact">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+        {% if request.user.is_active %}
+          <a class="btn btn-link facebook navbar-right" style="font-size: 16px;font-weight:bold;" href="{% url 'logout' %}" >{{ user.username }} (logout)</a>
+          
+          {% else %}
+        <a class="btn btn-link facebook navbar-right" href="{% url 'social:begin' 'facebook' %}" style="font-size: 16px;font-weight:bold;">
+        <i class="fa fa-fw fa-facebook-square" >
+          
+        </i>&nbsp;Login</a>
+        {% endif %}
+      </div>
+    </div>
+{% block body %}
+
+{% endblock body %}
+<footer class="section">
+      <div class="container" >
+        <div class="row" >
+          <div class="col-sm-6 col-md-12">
+            <div class="row">
+              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
+                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 hidden-xs text-right">
+                <h5 class="text-center">© 2017 BY DESIGN BUSINESS AND TECHNOLOGY MANAGEMENT &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp;info@drunkme.com | Faculty of Architecture and
+                  Planning Thammasat University
+                  <a href="#"><i class="fa fa-fw fa-instagram fa-lg text-muted"></i></a>
+                  <a href="#"><i class="fa fa-fw fa-lg fa-twitter text-muted"></i></a>
+                  <a href="#"><i class="fa fa-facebook fa-fw fa-lg text-muted"></i></a>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+
+</body>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#page-help').each(function() {
+    var $link = $(this);
+    var $dialog = $('<div></div>')
+      .load($link.attr('href') + ' #content')
+      .dialog({
+        autoOpen: false,
+        title: $link.attr('title'),
+        width: 500,
+        height: 300
+      });
+
+    $link.click(function() {
+      $dialog.dialog('open');
+
+      return false;
+    });
+  });
+});
+</script>
+<script>
+    $(function() {
+
+        function filterPath(string) {
+            return string
+            .replace(/^\//,'')
+            .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+            .replace(/\/$/,'');
+        }
+
+        var locationPath = filterPath(location.pathname);
+        var scrollElem = scrollableElement('html', 'body');
+
+        // Any links with hash tags in them (can't do ^= because of fully qualified URL potential)
+        $('a[href*=#]').each(function() {
+
+            // Ensure it's a same-page link
+            var thisPath = filterPath(this.pathname) || locationPath;
+            if (  locationPath == thisPath
+                && (location.hostname == this.hostname || !this.hostname)
+                && this.hash.replace(/#/,'') ) {
+
+                    // Ensure target exists
+                    var $target = $(this.hash), target = this.hash;
+                    if (target) {
+
+                        // Find location of target
+                        var targetOffset = $target.offset().top;
+                        $(this).click(function(event) {
+
+                            // Prevent jump-down
+                            event.preventDefault();
+
+                            // Animate to target
+                            $(scrollElem).animate({scrollTop: targetOffset}, 1000, function() {
+
+                                // Set hash in URL after animation successful
+                                location.hash = target;
+
+                            });
+                        });
+                    }
+            }
+
+        });
+
+        // Use the first element that is "scrollable"  (cross-browser fix?)
+        function scrollableElement(els) {
+            for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+                var el = arguments[i],
+                $scrollElement = $(el);
+                if ($scrollElement.scrollTop()> 0) {
+                    return el;
+                } else {
+                    $scrollElement.scrollTop(1);
+                    var isScrollable = $scrollElement.scrollTop()> 0;
+                    $scrollElement.scrollTop(0);
+                    if (isScrollable) {
+                        return el;
+                    }
+                }
+            }
+            return [];
+        }
+
+    });
+    </script>
+
+
+</html>

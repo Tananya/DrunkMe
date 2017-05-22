@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style type="text/css">
+  .selectpicker{
+
+    width: 100%;
+    height: 30px;
+    padding: 5px 0px;
+  }
+</style>
+    
+    <div class="blockcontents section namebar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 namebar">
+            <h1 class="about content">
+              <i class="fa fa-fw fa-lg fa-plus plus"></i>{{area.area}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% for i in bar %}
+    <form method="GET" class="form-horizontal" role="form">
+    <div id="carousel-example" data-interval="3000" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+       {% if i.image1 %}
+        <div class="item active">
+          <img src="{{i.image1.url}}">
+        </div>
+        {% endif %}
+        {% if i.image2 %}
+        <div class="item">
+          <img src="{{i.image2.url}}">
+        </div>
+         {% endif %}
+        {% if i.image3 %}
+        <div class="item">
+          <img src="{{i.image3.url}}">
+        </div>
+        {% endif %}
+      </div>
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><i class="icon-next fa fa-angle-right"></i> </a>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          {% if i.promotion %}
+            <p style="font-family: 'Athiti', sans-serif;font-size: 30px">Promotion : {{i.promotion}}</p>
+            {% endif %}
+
+            {% if i.happyhours %}
+            <p style="font-family: 'Athiti', sans-serif;font-size: 30px">Happy Hours : {{i.happyhours}}</p>
+            {% endif %}
+            <p class="text-left" style="font-family: 'Athiti', sans-serif;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.content}} <br><br></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 text-left">
+            <table class="table" >
+              <tbody>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br1.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px" >{{i.name}}</td>
+
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br2.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.category}}</td>
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br3.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.status}}</td>
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br4.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.location}}</td>
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br5.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.price}}</td>
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br6.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.wifi}}</td>
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br7.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.phone}}</td>
+                </tr>
+                <tr>
+                  <td style="border: none;">
+                    <img class="media-object" src="../media/images/base/br8.png" height="35" width="35">
+                  </td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{i.facebook}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <a  data-toggle="modal" data-target="#modalBook"
+            id="btnBook">
+            <button class="buttonY" style="vertical-align:middle"><span>BOOK NOW</span></button></a>
+          </div>
+          <div class="col-md-7">
+            <iframe  style="float: right;" src="{{i.googlemap}}" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <center>
+    <div class="row">
+    <div class="fb-like" data-href="{{get_absolute_uri}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></div>
+    <div class="fb-comments" data-href="{{get_absolute_uri}}" data-numposts="5"></div>
+    </center>
+    <div class="modal fade" id="modalBook">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">BOOK NOW</h4>
+             <input style="display:none"  type="text"  name ="idbar" class="form-control" id="inputEmail3" value="{{i.id}}" readonly="readonly">
+          </div>
+
+         
+          <div class="modal-body">
+
+            <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputEmail3" class="control-label">Bar</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text"  name ="namebar" class="form-control" id="inputEmail3" value="{{i.name}}" readonly="readonly">
+                 
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputEmail3" class="control-label">Name</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text"  name ="name" class="form-control" id="inputEmail3" placeholder="Enter your name">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputEmail3" class="control-label">Phone</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text"  name ="phone" class="form-control" id="inputEmail3" placeholder="Enter your Phone">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputPassword3" class="control-label">Time</label>
+                </div>
+                <div class="col-sm-10">
+                  <select name = "time" class="selectpicker">
+                    <option value = "19:00">19:00</option>
+                    <option value = "19:30">19:30</option>
+                    <option value = "20:00">20:00</option>
+                    <option value = "20:30">20:30</option>
+                    <option value = "21:00">21:00</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputPassword3" class="control-label">Number</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text"  name ="people" class="form-control" id="inputPassword3" placeholder="How many people?">
+                </div>
+              </div>
+              
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-default" data-dismiss="modal">Close</a>
+            <input class="btn btn-warning"  data-toggle="modal" data-target="#modalSuccess" type="submit" value="Save Book"/>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    </form> 
+  
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    {% endfor %}
+    {% endblock body %}

@@ -1,0 +1,91 @@
+{% extends "basenearby.html" %}
+
+
+{% block search%}
+<style type="text/css">
+  input {
+ 
+  border-radius: 4px;
+  background-color: #FFF;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  width: 150px;
+ font-family: 'Athiti', sans-serif;
+}
+input:hover{
+  transform: scale(1.2);
+}
+p{
+  font-size: 30px;
+  color: #FFF;
+  font-family: 'Athiti', sans-serif;
+}
+select{
+  width: 160px;
+  height: 30px;
+  font-size: 20px;
+  font-family: 'Athiti', sans-serif;
+}
+
+
+</style>
+<div class="blockcontents section namebar drink">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 namebar">
+            <h1 class="about content">
+              <i class="fa fa-fw fa-lg fa-plus plus"></i>SEARCH</h1>
+          </div>
+        </div>
+
+        <form method='GET' action='' >
+        <div class="row">
+          <div class="col-md-12" >
+            
+            <p style="display: inline;padding-left: 100px;padding-right: 10px;">TYPE</p>
+              <select name="type" style="display: inline;" >
+                <option value="">All</option>
+                <option value="PUB">PUB</option>
+                <option value="BAR">BAR</option>
+              </select>
+
+            
+
+           
+             <p style="display: inline;padding-left: 50px;padding-right: 10px">AREA</p>
+              <select name="area" style="display: inline;">
+                <option value="">All</option>
+                <option value="EKKAMAI-THONGLOR">EKKAMAI-THONGLOR</option>
+                <option value="SUKHUMVIT">SUKHUMVIT</option>
+                <option value="KHAOSAN">KHAOSAN</option>
+                <option value="THAMMASAT RANGSIT">THAMMASAT RANGSIT</option>
+                <option value="KASETSART BANGKHEN">KASETSART BANGKHEN</option>
+                <option value="CHULALONGKORN">CHULALONGKORN</option>
+              </select>
+           
+
+            <div  style="display: inline;padding-left: 80px;">
+             <input type="submit">
+             </div>
+          
+         </div>
+        </div>
+         </form>
+      </div>
+    </div>
+
+  {% for i in bar %}
+    {% if i.image1 %}
+    <a href="{% url 'detail' i.id %}">
+    <img src="{{i.image1.url}}" style="width: 100%">
+    </a>
+    {% endif %}
+
+    {% endfor %}
+
+
+
+{% endblock search%}

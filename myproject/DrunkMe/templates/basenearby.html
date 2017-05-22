@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+
+<div class="blockcontents section namebar drink">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 namebar">
+            <h1 class="about content">
+              <i class="fa fa-fw fa-lg fa-plus plus"></i>FIND LOCATION</h1>
+            <h3 class="johnnie" contenteditable="true">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;BEST BAR&PUB NEAR YOU!</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="map" style="width: 100%;height: 60%"> 
+    </div>
+    {% block search%}
+    
+
+    
+   
+
+    {% endblock search%}
+
+    <script>
+      var map, infoWindow_ME , service , infoWindow_Mrk ;
+      function initMap() {
+        var pos = {lat: 14.0680981, lng: 100.6087633};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pos,
+          zoom: 14
+        });
+          infoWindow_Mrk = new google.maps.InfoWindow;
+          infoWindow_ME = new google.maps.InfoWindow;
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch({
+          location: pos,
+          radius: 4000,
+          type: ['bar']
+          }, callback);
+      }
+
+     
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var poss = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            infoWindow_ME.setPosition(poss);
+            infoWindow_ME.setContent('Me');
+            infoWindow_ME.open(map);
+            map.setCenter(poss);
+          });
+        } 
+
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          var request = {
+                reference: place.reference
+            };
+
+           service.getDetails(request, function(details, status) {
+              infoWindow_Mrk.setContent([
+                'Name : ' + details.name,
+                'Address : ' + details.formatted_address,
+                'Website : ' + details.website,
+                'Rating : ' + details.rating,
+                'Phone : ' + details.formatted_phone_number].join("<br />"));
+              infoWindow_Mrk.open(map, marker);
+            });
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh8DHLHXyT1Aqsa70i9aUHYg6VxoingjA&libraries=places&callback=initMap" async defer></script>
+    
+   
+  {% endblock body %}

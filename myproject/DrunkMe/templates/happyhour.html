@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+<div class="blockcontents section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="about content">
+                            <i class="fa fa-fw fa-lg fa-plus plus"></i>HAPPY HOURS</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ {% for i in bar %}
+ {% if i.happyhours %}
+  <a href="{% url 'detail' i.id %}">
+  <img src = "{{i.image1.url}}" style="width: 100%;" >
+  </a>
+{% endif %}
+{% endfor %}
+
+
+{% endblock body %}

@@ -1,0 +1,421 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="5" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../media/css/areasdetailCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/contentsCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/drinksCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/eventCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/drinksCSS" rel="stylesheet" type="text/css">
+    <link href="../media/css/bookcss.css" rel="stylesheet" type="text/css">
+    <link href="../media/css/testcss.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant:600" rel="stylesheet"> 
+  </head>
+ <style type="text/css">
+     ul.nav li.dropdown:hover > ul.dropdown-menu {
+                    display: block;
+                    margin-top:0px;
+}
+
+h1{
+  font-family: 'Cormorant Infant', serif;
+}
+h2{
+  font-family: 'Cormorant Infant', serif;
+}
+h3{
+  font-family: 'Cormorant Infant', serif;
+}
+h4{
+  font-family: 'Cormorant Infant', serif;
+}
+h5{
+   font-family: 'Cormorant Infant', serif;
+}
+
+.buttonG {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #5CB85C;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonG span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonG span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonG:hover span {
+  padding-right: 25px;
+}
+
+.buttonG:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.buttonY {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #FCD307;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonY span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonY span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonY:hover span {
+  padding-right: 25px;
+}
+
+.buttonY:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.swing:hover
+{
+        -webkit-animation: swing 0.5s ease;
+        animation: swing 0.5s ease;
+        -webkit-animation-iteration-count: 3;
+        animation-iteration-count: 3;
+}
+
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+</style>
+  <body>
+    <div class="navbar navbar-default navbar-static-top menu">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand menu" href="{% url 'home' %}"><img class="swing" height="50" alt="Brand" src="../media/images/base/logo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="{% url 'home' %}">HOME</a>
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'contents' %}"  aria-expanded="false" >CONTENTS<br></a>
+              <ul class="dropdown-menu" role="menu" style="padding: none;min-width: 50px">
+                <li>
+                  <a href="{% url 'promotion' %}">PROMOTION</a>
+                </li>
+                <li>
+                  <a href="{% url 'happyhour' %}">HAPPY HOURS</a>
+                </li>
+                <li>
+                  <a href="{% url 'eventall' %}">EVENT</a>
+                </li>
+                <li>
+                  <a href="{% url 'areas' %}">AREAS</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'nearby' %}">LOCATION</a>
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'drinks' %}"  aria-expanded="false" >DRINKS<br></a>
+              <ul class="dropdown-menu" role="menu" style="min-width: 50px">
+                
+                <li class="dropdown" >
+                  <a href="{% url 'drinkdetail' 'Wine' %}" aria-expanded="false">WINE<br></a>
+                  <ul class="dropdown-menu" role="menu" style="min-width: 125px;top: 0;left: 100%;">
+                    <li>
+                      <a href="{% url 'typedrink' 'whitewine' %}">White Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'redwine' %}">Red Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'rosewine' %}">Rose Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'dessertwine' %}">Dessert Wine</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'sparkling' %}">Sparkling Wine</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="{% url 'drinkdetail' 'Spirits' %}"  aria-expanded="false" >SPIRITS<br></a>
+                  <ul class="dropdown-menu" role="menu"  style="min-width: 125px;top: 0;left: 100%;">
+                    <li>
+                      <a href="{% url 'typedrink' 'whisky' %}">Whisky</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'vodka' %}">Vodka</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'gin' %}">Gin</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'brandy' %}">Brandy</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'tequila' %}">Tequila</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'liqueur' %}">Liqueur</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'rum' %}">Rum</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'aperitif' %}">Aperitif</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="{% url 'drinkdetail' 'Beer' %}" aria-expanded="false" >BEER<br></a>
+                  <ul class="dropdown-menu" role="menu"  style="min-width: 250px;top: 0;left: 100%;">
+                    <li>
+                      <a href="{% url 'typedrink' 'ipa' %}">Ipa</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'stouts' %}">Stouts</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'blondes' %}">Blondes</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'paleales' %}">Pale Ales</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'wheatbeer' %}">Wheat Beer</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'aleandporters' %}">Ale and Porters</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'whiskybourbonbarrelagedstouts' %}">Whisky:Bourbon Barrel-Aged Stouts</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'redalesambers' %}">Red Ales:Ambers</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'ryesandpumpkinales' %}">Ryes and pumpkin Ales</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'pilsners' %}">Pilsners</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'amberlager' %}">Amber Lager</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'bock' %}">Bock</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'dunkel' %}">Dunkel</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'typedrink' 'schwarzbier' %}">Schwarzbier</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'home' %}#contact">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+{% for i in bar %}
+<div class="blockcontents section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="about content">
+                            <i class="fa fa-fw fa-lg fa-plus plus"></i>{{i.name}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+<form method="GET" class="form-horizontal" role="form">
+ <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Telephone number</th>
+                  <th>Time</th>
+                  <th>Number</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+              {% for i in book %}
+                <tr>
+                  <td>{{i.name}}</td>
+                  <td>{{i.phone}}</td>
+                  <td>{{i.time}}</td>
+                  <td>{{i.people}}</td>
+                  
+                </tr>
+              {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Modal -->
+    
+  <div class="modal fade" id="mymodal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirm Delete</h4>
+        </div>
+        <div class="modal-body">
+          <p>Delete now?</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input class="btn btn-warning"   type="submit" value="OK"  />
+        </div>
+      </div>
+    </div>
+  </div>
+  </form> 
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+<style type="text/css">
+  
+  img:hover {
+    transform: scale(1.2);
+  }
+
+</style>
+<div class="blockcontents section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="about content">
+                            <i class="fa fa-fw fa-lg fa-plus plus"></i>FIND DRINKS</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ 
+ <div class="section">
+      <div class="container">
+        {% for i in drink %}
+        
+        <center>
+          <div class="col-md-3" style="padding: 20px 0px">
+          <div style="width: 300; height:400;">
+          <a href="{% url 'drinkdst' i.id %}">
+            <img src="{{i.image.url}}"  class="img-responsive" style="height: 350px;width: auto;"></a>
+            <h2></h2>
+            <h2></h2>
+            <h4>{{ i.name }}</h4>
+            </div>
+          </div>
+          </center>
+          {% endfor %}
+         
+          
+       
+      </div>
+    </div>
+
+
+
+{% endblock body %}

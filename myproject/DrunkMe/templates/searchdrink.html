@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SearchDrink</title>
+</head>
+<body>
+
+<center>
+
+
+
+	{% for i in drink %}
+		<h2 style="display:inline">Category : {{ i.get_category_display }}</h2>
+		<h2 style="display:inline">Type : {{ i.get_typedrink_display }}</h2>
+		<h2 style="display:inline">Name : {{ i.name }}</h2>
+		<br><br>
+	{% endfor %}
+</center>
+
+
+</body>
+</html>

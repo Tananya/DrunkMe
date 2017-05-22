@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SearchBar</title>
+</head>
+<body>
+
+<center>
+
+<form method='GET' action='' style="display:inline">
+  <select name="type">
+  	<option value="">All</option>
+    <option value="PUB">PUB</option>
+    <option value="BAR">BAR</option>
+  </select>
+ 
+  <select name="area">
+  	<option value="">All</option>
+    <option value="EKKAMAI-THONGLOR">EKKAMAI-THONGLOR</option>
+    <option value="SUKHUMVIT">SUKHUMVIT</option>
+    <option value="KHAOSAN">KHAOSAN</option>
+    <option value="THAMMASAT RANGSIT">THAMMASAT RANGSIT</option>
+    <option value="KASETSART BANGKHEN">KASETSART BANGKHEN</option>
+    <option value="CHULALONGKORN">CHULALONGKORN</option>
+  </select>
+
+  <input type="submit">
+</form>
+
+	{% for i in bar %}
+	<h2>
+		<h2 style="display:inline">{{i.name}}</h2>
+    {% if i.image1 %}
+    <img src="{{i.image1.url}}" >
+    {% endif %}
+	</h2>
+	{% endfor %}
+
+</center>
+
+
+</body>
+</html>

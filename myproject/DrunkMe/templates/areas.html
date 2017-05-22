@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+
+
+{% block body %}
+<div class="blockcontents section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="about content">
+                            <i class="fa fa-fw fa-lg fa-plus plus"></i>AREAS</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% for i in area %}
+<a href="{% url 'areasdetail' i.id %}">
+<img src = "{{i.image.url}}" style="width: 100%;" class="img-responsive">
+</a>
+{% endfor %}
+
+{% endblock body %}
+
+
