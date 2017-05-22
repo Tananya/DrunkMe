@@ -341,15 +341,20 @@ h5{
             </li>
           </ul>
         </div>
+        <div class="row text-right">
+       
         {% if request.user.is_active %}
-          <a class="btn btn-link facebook navbar-right" style="font-size: 16px;font-weight:bold;" href="{% url 'logout' %}" >{{ user.username }} (logout)</a>
+          <a class="btn btn-link facebook" style="font-size: 16px;font-weight:bold;display: inline;" href="{% url 'logout' %}" >{{ user.username }} (logout)</a>
           
           {% else %}
-        <a class="btn btn-link facebook navbar-right" href="{% url 'social:begin' 'facebook' %}" style="font-size: 16px;font-weight:bold;">
-        <i class="fa fa-fw fa-facebook-square" >
-          
-        </i>&nbsp;Login</a>
+
+        <a class="btn btn-link facebook" href="{% url 'social:begin' 'facebook' %}" style="font-size: 16px;font-weight:bold;display: inline;">
+        <i class="fa fa-fw fa-facebook-square" ></i>&nbsp;Login</a>
+       
         {% endif %}
+         <a class="btn btn-sm btn-warning" href="{% url 'loginbar' %}"><i class="fa fa-star fa-fw"></i>Owner login</a>
+        </div>
+        
       </div>
     </div>
 {% block body %}

@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^typedrink/(?P<typedrink>[\w-]+)$', views.typedrink , name='typedrink'),
     url(r'^recommended/', views.recommended , name='recommended'),
     url(r'^drinkdst/(?P<num>[0-9]+)$', views.drinkdst , name='drinkdst'),
-    url(r'^bar/', views.loginbar , name='loginbar'),
+    url(r'^loginbar/', views.loginbar , name='loginbar'),
     url(r'^book/', views.book , name='book'),
 
     url(r'^login/$', auth_views.login, name='login'),# <--
