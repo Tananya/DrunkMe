@@ -100,11 +100,11 @@ def areasdetail(request , num = '1'):
 
 def promotion(request):
 	bar_list = Bar.objects.all()
-	return render(request, 'promotion.html ' , {'bar' : bar_list})
+	return render(request, 'promotion.html' , {'bar' : bar_list})
 
 def happyhour(request):
 	bar_list = Bar.objects.all()
-	return render(request, 'happyhour.html ' , {'bar' : bar_list})
+	return render(request, 'happyhour.html' , {'bar' : bar_list})
 
 def contents(request):
 	area = Area.objects.all()
