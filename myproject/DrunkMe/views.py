@@ -117,7 +117,9 @@ def drinks(request):
 def drinkdetail(request  , category = ''):
 	drink_list = Drink.objects.filter(category = category)
 
-	return render(request, 'drinkdetail.html' , {'drink' : drink_list})
+
+
+	return render(request, 'drinkdetail.html' , {'drink' : drink_list , 'category' : category})
 
 def typedrink(request  , typedrink = ''):
 	drink_list = Drink.objects.filter(typedrink = typedrink)

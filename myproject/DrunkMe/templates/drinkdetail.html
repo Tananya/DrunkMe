@@ -8,6 +8,10 @@
   img:hover {
     transform: scale(1.2);
   }
+  h3{
+    font-family: 'Athiti', sans-serif;
+  
+  }
 
 </style>
 <div class="blockcontents section">
@@ -24,8 +28,33 @@
  
     <div class="section">
       <div class="container">
-        {% for i in drink %}
         
+        {% if category == 'Wine' %}
+         <div class="container" style="background-color: #ffec9b;padding: 15px 15px;border-radius: 20px">
+           <h3 class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หากเปรียบเทียบในหมู่เครื่องดื่มทั้งหลายคงปฏิเสธไม่ได้ว่าไวน์เปรียบเสมือนงานศิลปะชั้นสูงที่มีความปราณีต หรูหราและเป็นทางการ มีราคาแพง แน่นอนว่าการที่เราจะจ่ายเงินแพงๆซื้อไวน์ซักขวดก็คงอยากได้ไวน์ที่รสชาติถูกปาก เข้ากับมื้ออาหารที่ทาน พวกเราจึงได้รวบรวมข้อมูลที่เข้าใจง่ายมาให้ทั้งมือใหม่และมือฉมังได้อ่านกัน
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เริ่มจากชนิดของไวน์ ไวน์มีหลากหลายชนิดตามวิธีการผลิต พันธุองุ่น หรือแม้แต่ไวน์จากประเทศเดียวกัน ใช้องุ่นพันธุเดียวกัน แต่ปลูกคนละที่ ก็จะกลายเป็นไวน์คนละชนิดได้ เราจึงขอสรุปง่ายๆอย่างไม่เป็นทางการให้ว่า หลักๆแล้ว ไวน์มี 5 ชนิดหลัก ได้แก่ ไวน์ขาว (White Wine), ไวน์แดง (Red Wine), ไวน์กุหลาบ (Rose Wine),ไวน์หวาน (Dessert Wine) และไวน์ซ่า (Sparkling Wine) และยังมีชนิดอื่นๆอีกมากมายจากทั่วทุกมุมโลก 
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ทีมงานของ Drunkme ใช้ความพยายามเป็นเวลานานในการรวบรวมข้อมูลหาไวน์คุณภาพที่ราคาสมเหตุสมผลเหมาะสำหรับผู้ที่กำลังจะเริ่มต้นเส้นทางนักชิมไวน์ หรือ ผู้ที่มีประสบการณ์โชติโชนแต่อาจมองข้ามไวน์ดีๆเหล่านี้ แม้บางขวดจะค่อนข้างหายากในไทย แต่หากได้มีโอกาสบังเอิญเจอไวน์เหล่านี้ หรือได้มีโอกาสได้ไปต่างประเทศแล้วละก็ เตรียมเหมาโหลให้หมดร้านได้เลย
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**(ไวน์ที่พวกเราคัดเลือกมามีบางส่วนเป็นไวน์โลกใหม่หรือไวน์ฝาเกลียว ไม่รับประกันความคลาสสิคและขวดสวย แต่รับประกันคุณภาพและความคุ้มค่าแน่นอน)**
+            </h3>
+         </div>
+        {% elif category == 'Spirits' %}
+        <div class="container" style="background-color: #ffec9b;padding: 15px 15px;border-radius: 20px">
+          <h3 class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สุรากลั่น (Distilled หรือ Spirit beverages) ที่ได้จากการนำสุราแช่ที่ผลิตจากธัญพืช รากพืช ผลผลิตจากน้ำตาล หรือผลไม้ แล้วนำมากลั่น  เช่น วิสกี้ (Whisky) , วอดก้า (Vodka) , รัม (Rum) , บรั่นดี (Brandy), เตกิลา (Tequila) ชนิดของเหล้าที่เกิดจากรกรรมวิธีในการกลั่น สามารถแยกออกมาได้อีกมามาย แต่หลักๆที่นักดื่มจะนิยมและรู้จักกันดีมีดังนี้</h3>
+        </div>
+        {% else %}
+        <div class="container" style="background-color: #ffec9b;padding: 15px 15px;border-radius: 20px">
+          <h3 class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ส่วนใหญ่ เบียร์จะเป็นเบียร์ได้ ก็ต่อเมื่อคุณไปถึงขั้นตอนการหมัก ในขั้นตอนนี้คือตอนที่มีการเติมยีสต์สายพันธุ์ต่างๆ เข้าไป  ซึ่งจะเป็นตัวกำหนดประเภทของเบียร์ สำหรับหลายๆ คน เบียร์มีอยู่สองประเภทหลัก คือ เอลล์ และ ลาเกอร์ วิธีที่ง่ายที่สุดในการพิจารณาความแตกต่างระหว่าง ผลิตภัณฑ์ 2 ชนิดนี้ คือดูจากชนิดของยีสต์ที่ใช้ และกระบวนการหมักนั้นมีขั้นตอนอย่างไร
+          <br><br>เอล (ALE)
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เบียร์หมักปากถัง หมายถึง กระบวนการหมักเกิดขึ้นที่ด้านบนสุดของถังหมัก นอกจากนี้เอลยังถูกหมักที่อุณหภูมิสูงกว่า ซึ่งส่งผลให้เบียร์มีสีเข้มกว่า และโดยทั่วไปมีรสชาติแรงกว่าลาเกอร์ ตัวอย่างคลาสสิกของเอล คือ Kwak จากเบลเยี่ยม เบียร์ Ale ยังสามารถแบ่งได้อีกหลายประเภทเช่น Pale ale, IPA, Stouts, Wheat Beer, etc.
+          <br><br>ลาเกอร์ (LAGER)
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เบียร์ที่เกิดการหมักขึ้นที่ก้นของถังหมัก ลาเกอร์ถูกหมักที่อุณหภูมิเย็นกว่า ซึ่งส่งผลให้ได้เบียร์ที่ใส สด และเรียบเนียนกว่า ตัวอย่างที่ดีของลาเกอร์พันธุ์แท้ คือ Beer Lao และ Lager ยังสามารถแบ่งได้อีกหลายประเภทเช่น Pilsner, Bock, Dunkel, Schwarzbier, etc.
+        </h3>
+        </div>
+        {% endif %}
+       
+     
+        {% for i in drink %}
+
         <center>
           <div class="col-md-3" style="padding: 20px 0px">
           <div style="width: 300; height:400;">

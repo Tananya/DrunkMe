@@ -89,3 +89,5 @@ class Drink(models.Model):
 	category = models.CharField(max_length=100 , choices = CATEGORY_CHOICES , default = 'Wine')
 	typedrink = models.CharField(max_length=100 , choices = TYPE_CHOICES)
 	image = models.ImageField(upload_to='images/Drink')
+	content = models.CharField(max_length=2000 , default = "")
+	price = models.DecimalField(max_digits=10, decimal_places=2 , default = 0)
