@@ -24,6 +24,8 @@
 
     {% for i in bar %}
     <form method="GET" class="form-horizontal" role="form">
+    
+    
     <div id="carousel-example" data-interval="3000" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
        {% if i.image1 %}
@@ -135,6 +137,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title">BOOK NOW</h4>
+            
              <input style="display:none"  type="text"  name ="idbar" class="form-control" id="inputEmail3" value="{{i.id}}" readonly="readonly">
           </div>
 
@@ -198,8 +201,9 @@
         </div>
       </div>
     </div>
+    
     </form> 
-  
+  {% endfor %}
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -209,5 +213,6 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-    {% endfor %}
+
+    
     {% endblock body %}

@@ -33,6 +33,26 @@ def eventall(request):
 
 def detail(request , num = '1'):
 	detail = Bar.objects.get(id=num)
+
+	
+	
+	barname = request.GET.get("namebar")
+	name = request.GET.get("name")
+	phone = request.GET.get("phone")
+	time = request.GET.get("time")
+	people = request.GET.get("people")
+	
+	
+	
+
+	if name:
+		b = Bar.objects.get(id=num)
+		booking = Booking.objects.create(
+								bar = b,
+								name = name,
+								phone = phone,
+								time = time,
+								people = people,)
 	return render(request, 'detail.html' , {'detail' : detail})
 
 def menu(request , num = '1'):

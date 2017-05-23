@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
 {% block body %}
+<style type="text/css">
+  .selectpicker{
 
+    width: 100%;
+    height: 30px;
+    padding: 5px 0px;
+  }
+</style>
+    
     <div class="blockcontents section namebar">
       <div class="container">
         <div class="row">
@@ -13,9 +21,10 @@
       </div>
     </div>
 
-
+    <form method="GET" class="form-horizontal" role="form">
     
-    <div id="carousel-example" data-interval="5000" class="carousel slide" data-ride="carousel">
+    
+    <div id="carousel-example" data-interval="3000" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
        {% if detail.image1 %}
         <div class="item active">
@@ -40,7 +49,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            {% if detail.promotion %}
+          {% if detail.promotion %}
             <p style="font-family: 'Athiti', sans-serif;font-size: 30px">Promotion : {{detail.promotion}}</p>
             {% endif %}
 
@@ -58,7 +67,8 @@
                   <td style="border: none;">
                     <img class="media-object" src="../media/images/base/br1.png" height="35" width="35">
                   </td>
-                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px">{{detail.name}}</td>
+                  <td style="border: none;font-family: 'Athiti', sans-serif;font-size: 20px" >{{detail.name}}</td>
+
                 </tr>
                 <tr>
                   <td style="border: none;">
@@ -109,7 +119,7 @@
             <button class="buttonY" style="vertical-align:middle"><span>BOOK NOW</span></button></a>
           </div>
           <div class="col-md-7">
-            <iframe  style="float: right;" src="{{detail.googlemap}}" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe  style="float: right;" src="{{i.googlemap}}" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -125,15 +135,28 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title">BOOK NOW</h4>
+            
+             <input style="display:none"  type="text"  name ="idbar" class="form-control" id="inputEmail3" value="{{detail.id}}" readonly="readonly">
           </div>
+
+         
           <div class="modal-body">
-            <form class="form-horizontal" role="form">
+
+            <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputEmail3" class="control-label">Bar</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text"  name ="namebar" class="form-control" id="inputEmail3" value="{{detail.name}}" readonly="readonly">
+                 
+                </div>
+              </div>
               <div class="form-group has-feedback">
                 <div class="col-sm-2">
                   <label for="inputEmail3" class="control-label">Name</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter your name">
+                  <input type="text"  name ="name" class="form-control" id="inputEmail3" placeholder="Enter your name">
                 </div>
               </div>
               <div class="form-group has-feedback">
@@ -141,7 +164,21 @@
                   <label for="inputEmail3" class="control-label">Phone</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter your Phone">
+                  <input type="text"  name ="phone" class="form-control" id="inputEmail3" placeholder="Enter your Phone">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <div class="col-sm-2">
+                  <label for="inputPassword3" class="control-label">Time</label>
+                </div>
+                <div class="col-sm-10">
+                  <select name = "time" class="selectpicker">
+                    <option value = "19:00">19:00</option>
+                    <option value = "19:30">19:30</option>
+                    <option value = "20:00">20:00</option>
+                    <option value = "20:30">20:30</option>
+                    <option value = "21:00">21:00</option>
+                  </select>
                 </div>
               </div>
               <div class="form-group has-feedback">
@@ -149,34 +186,22 @@
                   <label for="inputPassword3" class="control-label">Number</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputPassword3" placeholder="How many people?">
+                  <input type="text"  name ="people" class="form-control" id="inputPassword3" placeholder="How many people?">
                 </div>
               </div>
-            </form>
+              
           </div>
           <div class="modal-footer">
             <a class="btn btn-default" data-dismiss="modal">Close</a>
-            <a class="btn btn-warning" data-dismiss="modal" id="btnSavebook" data-toggle="modal"
-            data-target="#modalSuccess">Save Book</a>
+            <input class="btn btn-warning"  data-toggle="modal" data-target="#modalSuccess" type="submit" value="Save Book"/>
           </div>
+          
         </div>
       </div>
     </div>
-    <div class="modal fade" id="modalSuccess">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <p class="text-success">Booked Successfully.&nbsp;</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
+    
+    </form> 
+  
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -186,4 +211,6 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
     {% endblock body %}
